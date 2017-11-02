@@ -13,6 +13,16 @@ public class InputManager : MonoBehaviour {
     [SerializeField]
     private float _axisThreshhold = 0.2f;
 
+    public static InputManager instance;
+    
+    void Awake() {
+        if (InputManager.instance == null) {
+            instance = this;
+        } else {
+            Destroy(this);
+        }
+    }
+
     /* 
      * functions that return values for the wasd/arrow buttons
      */

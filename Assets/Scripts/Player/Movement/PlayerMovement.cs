@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour {
+
+    private Rigidbody _rb;
     private InputManager _inputManager;
+
     [SerializeField]
     private float _movementSpeed = 5;
 
 
     void Start() {
-        //check if the inputmanager is present. If it's not, add it.
-        //I was too lazy to add it in the unity editor, and this looks pretty nice
-        //copy paste from camerarotation
-        if (!(_inputManager = this.GetComponent<InputManager>())) {
-            _inputManager = this.gameObject.AddComponent<InputManager>();
-        }
+        _inputManager = InputManager.instance;
+
+        _rb = this.GetComponent<Rigidbody>();
     }
 
     void Update() {
@@ -31,7 +32,8 @@ public class PlayerMovement : MonoBehaviour {
         if (_inputManager.Left()) {
             _movement -= this.transform.right;
         }
+
         _movement.Normalize();
-        this.transform.position += (_movement * Time.deltaTime * _movementSpeed);
+        _rb.MovePosition(this.transform.position += (_movement * Time.deltaTime * _movementSpeed));
     }
 }
