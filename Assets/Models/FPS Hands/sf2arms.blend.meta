@@ -1,0 +1,352 @@
+fileFormatVersion: 2
+guid: 4cfff77596a7876478fca6f42562e197
+timeCreated: 1509707404
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: aim
+    100002: barrel
+    100004: Bolt
+    100006: Bullet
+    100008: bullets
+    100010: chest
+    100012: Eject
+    100014: f_index_01_L
+    100016: f_index_01_R
+    100018: f_index_02_L
+    100020: f_index_02_R
+    100022: f_index_03_L
+    100024: f_index_03_R
+    100026: f_middle_01_L
+    100028: f_middle_01_R
+    100030: f_middle_02_L
+    100032: f_middle_02_R
+    100034: f_middle_03_L
+    100036: f_middle_03_R
+    100038: f_pinky_01_L
+    100040: f_pinky_01_R
+    100042: f_pinky_02_L
+    100044: f_pinky_02_R
+    100046: f_pinky_03_L
+    100048: f_pinky_03_R
+    100050: f_ring_01_L
+    100052: f_ring_01_R
+    100054: f_ring_02_L
+    100056: f_ring_02_R
+    100058: f_ring_03_L
+    100060: f_ring_03_R
+    100062: foot_L
+    100064: foot_R
+    100066: forearm_L
+    100068: forearm_R
+    100070: Grip
+    100072: Group_10
+    100074: hand_L
+    100076: hand_L__IK
+    100078: hand_R
+    100080: hand_R_IK
+    100082: head
+    100084: heel_02_L
+    100086: heel_02_R
+    100088: heel_L
+    100090: heel_R
+    100092: hips
+    100094: lense
+    100096: Mag
+    100098: mag
+    100100: Mag_001
+    100102: mag_001
+    100104: metarig
+    100106: mtl_weapon_ak12_weapon_ak12_col_tga_001
+    100108: neck
+    100110: palm_01_L
+    100112: palm_01_R
+    100114: palm_02_L
+    100116: palm_02_R
+    100118: palm_03_L
+    100120: palm_03_R
+    100122: palm_04_L
+    100124: palm_04_R
+    100126: rail
+    100128: rearsight
+    100130: Requests_Studio_Hands
+    100132: Rifle
+    100134: Safety
+    100136: //RootNode
+    100138: shin_L
+    100140: shin_R
+    100142: shoulder_L
+    100144: shoulder_R
+    100146: Silencer
+    100148: spine
+    100150: Stock
+    100152: stock
+    100154: thigh_L
+    100156: thigh_R
+    100158: thumb_01_L
+    100160: thumb_01_R
+    100162: thumb_02_L
+    100164: thumb_02_R
+    100166: thumb_03_L
+    100168: thumb_03_R
+    100170: toe_L
+    100172: toe_R
+    100174: TomGroup_4
+    100176: TomGroup_4_001
+    100178: Trigger
+    100180: upper_arm_L
+    100182: upper_arm_R
+    100184: watch
+    400000: aim
+    400002: barrel
+    400004: Bolt
+    400006: Bullet
+    400008: bullets
+    400010: chest
+    400012: Eject
+    400014: f_index_01_L
+    400016: f_index_01_R
+    400018: f_index_02_L
+    400020: f_index_02_R
+    400022: f_index_03_L
+    400024: f_index_03_R
+    400026: f_middle_01_L
+    400028: f_middle_01_R
+    400030: f_middle_02_L
+    400032: f_middle_02_R
+    400034: f_middle_03_L
+    400036: f_middle_03_R
+    400038: f_pinky_01_L
+    400040: f_pinky_01_R
+    400042: f_pinky_02_L
+    400044: f_pinky_02_R
+    400046: f_pinky_03_L
+    400048: f_pinky_03_R
+    400050: f_ring_01_L
+    400052: f_ring_01_R
+    400054: f_ring_02_L
+    400056: f_ring_02_R
+    400058: f_ring_03_L
+    400060: f_ring_03_R
+    400062: foot_L
+    400064: foot_R
+    400066: forearm_L
+    400068: forearm_R
+    400070: Grip
+    400072: Group_10
+    400074: hand_L
+    400076: hand_L__IK
+    400078: hand_R
+    400080: hand_R_IK
+    400082: head
+    400084: heel_02_L
+    400086: heel_02_R
+    400088: heel_L
+    400090: heel_R
+    400092: hips
+    400094: lense
+    400096: Mag
+    400098: mag
+    400100: Mag_001
+    400102: mag_001
+    400104: metarig
+    400106: mtl_weapon_ak12_weapon_ak12_col_tga_001
+    400108: neck
+    400110: palm_01_L
+    400112: palm_01_R
+    400114: palm_02_L
+    400116: palm_02_R
+    400118: palm_03_L
+    400120: palm_03_R
+    400122: palm_04_L
+    400124: palm_04_R
+    400126: rail
+    400128: rearsight
+    400130: Requests_Studio_Hands
+    400132: Rifle
+    400134: Safety
+    400136: //RootNode
+    400138: shin_L
+    400140: shin_R
+    400142: shoulder_L
+    400144: shoulder_R
+    400146: Silencer
+    400148: spine
+    400150: Stock
+    400152: stock
+    400154: thigh_L
+    400156: thigh_R
+    400158: thumb_01_L
+    400160: thumb_01_R
+    400162: thumb_02_L
+    400164: thumb_02_R
+    400166: thumb_03_L
+    400168: thumb_03_R
+    400170: toe_L
+    400172: toe_R
+    400174: TomGroup_4
+    400176: TomGroup_4_001
+    400178: Trigger
+    400180: upper_arm_L
+    400182: upper_arm_R
+    400184: watch
+    4300000: lense
+    4300002: aim
+    4300004: watch
+    4300006: Requests_Studio_Hands
+    4300008: bullets
+    4300010: barrel
+    4300012: Group_10
+    4300014: mag_001
+    4300016: mag
+    4300018: mtl_weapon_ak12_weapon_ak12_col_tga_001
+    4300020: rail
+    4300022: rearsight
+    4300024: stock
+    4300026: TomGroup_4_001
+    4300028: TomGroup_4
+    7400000: Default Take
+    7400002: draw
+    7400004: idle
+    7400006: reload
+    7400008: shoot
+    9500000: //RootNode
+    13700000: aim
+    13700002: barrel
+    13700004: bullets
+    13700006: Group_10
+    13700008: lense
+    13700010: mag
+    13700012: mag_001
+    13700014: mtl_weapon_ak12_weapon_ak12_col_tga_001
+    13700016: rail
+    13700018: rearsight
+    13700020: Requests_Studio_Hands
+    13700022: stock
+    13700024: TomGroup_4
+    13700026: TomGroup_4_001
+    13700028: watch
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ak12_001__weapon_ak12_col_dds
+    second: {fileID: 2100000, guid: 73d5f46b10a735f4caf9ebef9e6e550d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ak12_002__weapon_ak12_col_dds
+    second: {fileID: 2100000, guid: 73d5f46b10a735f4caf9ebef9e6e550d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ak12__weapon_ak12_col_dds
+    second: {fileID: 2100000, guid: 73d5f46b10a735f4caf9ebef9e6e550d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car4_scope_tga__car4_scope_tga
+    second: {fileID: 2100000, guid: d674762d5807e0c4c96d598eef121c37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lense2_tga__lense_tga
+    second: {fileID: 2100000, guid: ecbe5aa3d5adf6e4da616d2aa6acb976, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: v_hands_gloves_sf2_tga__v_hands_gloves_sf2_d_tga_001
+    second: {fileID: 2100000, guid: 1ccb50ae394a4d94280227f8c165ae3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: v_hands_sleeves_sf2_tga__v_hands_sleeves_sf2_s_tga_001
+    second: {fileID: 2100000, guid: 1b7b0b53a761bc341b55eb5b2d57c22b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: v_hands_watch_sf2_d_tga_001__v_hands_watch_sf2_d_tga_002
+    second: {fileID: 2100000, guid: 0e94c23b2138dd441857e5c2be7fb9a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: weapon_ak12_col_tga__weapon_ak12_col_dds
+    second: {fileID: 2100000, guid: 73d5f46b10a735f4caf9ebef9e6e550d, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

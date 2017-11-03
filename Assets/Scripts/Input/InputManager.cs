@@ -48,4 +48,20 @@ public class InputManager : MonoBehaviour {
     public float GetYRot() {
         return -Input.GetAxis(Strings.Movement.MOUSE_Y);
     }
+
+    public bool GetLeftMouseDown() {
+        return Input.GetMouseButtonDown(0);
+    }
+
+    public bool GetLeftMouse() {
+        return Input.GetMouseButton(0);
+    }
+
+    public bool GetRightMouseDown() {
+        return Input.GetMouseButtonDown(1);
+    }
+
+    public bool GetRightMouse() {
+        return Input.GetMouseButton(1);
+    }
 }
