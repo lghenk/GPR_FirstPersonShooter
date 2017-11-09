@@ -29,27 +29,43 @@ public class BaseGun : MonoBehaviour {
     [SerializeField]
     private bool _isAutomatic = false;
 
-    private _weaponStates _weaponState = _weaponStates.single;
+    private _weaponStates _weaponState = _weaponStates.automatic;
 
     enum _weaponStates {
         single,
-        burst,
         automatic
     }
 
     private float _curFireCooldown;
 
+    void Start() {
+        reload();
+        Debug.Log("Start Called");
+    }
+
     public void shoot() {
+
         // 1. Check for fire rate;
         if (_curFireCooldown <= 0 && _curMagazine > 0) {
+            Debug.Log("Shot Fired " + _curMagazine + "/" + _maxMagazine);
+
             // 2. Update fire rate cooldown
             _curFireCooldown = 1 / _maxFireRate;
 
             // 3. Raycast away
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+            if (Physics.Raycast(ray, out hit)) {
+                Transform objectHit = hit.transform;
+
+                Debug.Log(objectHit.name);
+                // Do something with the object that was hit by the raycast.
+            }
+            Transform ply = GameObject.FindGameObjectWithTag("LocalPlayer").transform;
+            AddToDB.instance.AddShotLog(ply.position);
             // 4. Remove 1 bullet from cur mag
             _curMagazine -= 1;
-
         }
     }
 
@@ -73,13 +89,25 @@ public class BaseGun : MonoBehaviour {
         if (_curFireCooldown <= 0) {
             if (_isAutomatic && _weaponState == _weaponStates.automatic && InputManager.instance.GetLeftMouse()) {
                 shoot();
-            } else if (_isAutomatic && _weaponState == _weaponStates.burst && InputManager.instance.GetLeftMouseDown()) {
-                for (int i = 0; i < 3; i++) {
-                    shoot();
-                }
             } else if (_weaponState == _weaponStates.single && InputManager.instance.GetLeftMouseDown()) {
                 shoot();
             }
-        }       
+        }
+
+        if (InputManager.instance.GetKeyDown(KeyCode.R)) {
+            reload();
+        }
+
+        if (InputManager.instance.GetKeyDown(KeyCode.B)) {
+            if (_isAutomatic) {
+                var numberOfWeaponStates = Enum.GetValues(typeof(_weaponStates)).Length;
+
+                _weaponState += 1;
+                if ((int)_weaponState == numberOfWeaponStates) _weaponState = 0;
+                Debug.Log("Switched to " + Enum.GetName(typeof(_weaponStates), _weaponState));
+            } else {
+                _weaponState = _weaponStates.single;
+            }
+        }
     }
 }

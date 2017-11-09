@@ -64,4 +64,12 @@ public class InputManager : MonoBehaviour {
     public bool GetRightMouse() {
         return Input.GetMouseButton(1);
     }
+
+    public bool IsKeyDown(KeyCode code) {
+        return Input.GetKey(code);
+    }
+
+    public bool GetKeyDown(KeyCode code) {
+        return Input.GetKeyDown(code);
+    }
 }
