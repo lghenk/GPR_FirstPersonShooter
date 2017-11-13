@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: c4eefa1e6f22249549b3471f5c70249b
 timeCreated: 1510567681
+=======
+guid: 21cfbf54d8eacec4cb7fe73402acd24c
+timeCreated: 1510567133
+>>>>>>> origin/Jerry
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
