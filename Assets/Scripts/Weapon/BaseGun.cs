@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class BaseGun : MonoBehaviour {
 
     private int _curMagazine = 10;
@@ -29,7 +30,11 @@ public class BaseGun : MonoBehaviour {
     [SerializeField]
     private bool _isAutomatic = false;
 
+    [Tooltip("Different Sounds that play when player shoots")] [SerializeField] private AudioClip[] _gunSoundClips;
+
     private _weaponStates _weaponState = _weaponStates.automatic;
+
+    private AudioSource _audioSource;
 
     enum _weaponStates {
         single,
@@ -41,14 +46,14 @@ public class BaseGun : MonoBehaviour {
     void Start() {
         reload();
         Debug.Log("Start Called");
+
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public void shoot() {
 
         // 1. Check for fire rate;
         if (_curFireCooldown <= 0 && _curMagazine > 0) {
-            Debug.Log("Shot Fired " + _curMagazine + "/" + _maxMagazine);
-
             // 2. Update fire rate cooldown
             _curFireCooldown = 1 / _maxFireRate;
 
@@ -86,11 +91,13 @@ public class BaseGun : MonoBehaviour {
     private void Update() {
         _curFireCooldown -= Time.deltaTime;
 
-        if (_curFireCooldown <= 0) {
+        if (_curFireCooldown <= 0 && _curMagazine > 0) {
             if (_isAutomatic && _weaponState == _weaponStates.automatic && InputManager.instance.GetLeftMouse()) {
                 shoot();
+                playAudioClip();
             } else if (_weaponState == _weaponStates.single && InputManager.instance.GetLeftMouseDown()) {
                 shoot();
+                playAudioClip();
             }
         }
 
@@ -109,5 +116,11 @@ public class BaseGun : MonoBehaviour {
                 _weaponState = _weaponStates.single;
             }
         }
+    }
+
+    private void playAudioClip() {
+        int clip = UnityEngine.Random.Range(0, _gunSoundClips.Length);
+        _audioSource.clip = _gunSoundClips[clip];
+        _audioSource.Play();
     }
 }

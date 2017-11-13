@@ -1178,7 +1178,6 @@ GameObject:
   - component: {fileID: 4070493030083884}
   - component: {fileID: 33767476981918914}
   - component: {fileID: 23831392727015572}
-  - component: {fileID: 114807553737211536}
   m_Layer: 0
   m_Name: M4_Carbine
   m_TagString: Untagged
@@ -3000,22 +2999,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
---- !u!114 &114807553737211536
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1852965731304234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f269023de931b246aa1cf105519cf7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxMagazine: 30
-  _curAmmo: 500
-  _maxFireRate: 10
-  _bulletSpeed: 100
-  _isAutomatic: 1
 --- !u!114 &114817933238002632
 MonoBehaviour:
   m_ObjectHideFlags: 1
