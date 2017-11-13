@@ -753,6 +753,7 @@ GameObject:
   - component: {fileID: 54412030154121690}
   - component: {fileID: 114817933238002632}
   - component: {fileID: 114767591527520118}
+  - component: {fileID: 114255215901231126}
   m_Layer: 0
   m_Name: theboss
   m_TagString: Player
@@ -2886,6 +2887,20 @@ MonoBehaviour:
     i15: 92
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114255215901231126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1528935574454096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b699262454e40bff36741c532eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingHealth: 100
+  CurrentHealth: 0
+  HealthBar: {fileID: 0}
 --- !u!114 &114767591527520118
 MonoBehaviour:
   m_ObjectHideFlags: 1
