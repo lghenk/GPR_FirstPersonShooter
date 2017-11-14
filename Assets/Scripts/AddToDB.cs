@@ -22,8 +22,8 @@ public class AddToDB : MonoBehaviour {
         StartCoroutine(DoQuery(pos.x, pos.y, pos.z));
     }
 
-    IEnumerator DoQuery(float x, float y, float z) {        
-        WWW request = new WWW(string.Format("http://22279.hosts.ma-cloud.nl/GPR_DB.php?t_x={0}&t_y={1}&t_z={2}&p_id=99", x, y ,z));
+    IEnumerator DoQuery(float x, float y, float z) {
+        WWW request = new WWW(string.Format("http://22279.hosts.ma-cloud.nl/GPR_DB.php?t_x={0}&t_y={1}&t_z={2}&p_id=99", x, y, z));
         yield return request;
     }
 }
