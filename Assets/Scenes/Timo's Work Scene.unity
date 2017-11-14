@@ -383,35 +383,6 @@ Prefab:
     - {fileID: 114174074640535398, guid: 488739cfd0e156f448d33c2a86a91920, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 488739cfd0e156f448d33c2a86a91920, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &992510372 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1528935574454096, guid: 53c2c0c2fee4cf246a6770f38cc7ad5c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1716980521}
---- !u!95 &992510382 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 95232985480502076, guid: 53c2c0c2fee4cf246a6770f38cc7ad5c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1716980521}
---- !u!114 &992510384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 992510372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1590678366, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Animator: {fileID: 992510382}
-  m_ParameterSendBits: 0
-  param0: 
-  param1: 
-  param2: 
-  param3: 
-  param4: 
-  param5: 
 --- !u!1001 &996314692
 Prefab:
   m_ObjectHideFlags: 0
