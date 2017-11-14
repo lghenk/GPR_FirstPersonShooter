@@ -76,6 +76,10 @@ public class PlayerHealthManager : NetworkBehaviour {
         _isDead = true;
         currentHealth = 0;
 
-        // <WeaponScriptName>.enabled = false;
+        // Open Death Screen on player
+        
+        // Wait for count down
+
+        // Respawn on spawn
     }
 }
