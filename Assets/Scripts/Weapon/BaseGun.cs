@@ -58,17 +58,31 @@ public class BaseGun : MonoBehaviour {
             _curFireCooldown = 1 / _maxFireRate;
 
             // 3. Raycast away
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit _hit;
+            Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit)) {
-                Transform objectHit = hit.transform;
+            if (Physics.Raycast(_ray, out _hit)) {
+                Transform objectHit = _hit.transform;
 
                 Debug.Log(objectHit.name);
+
+                if (objectHit.tag == "Player") {
+                    if (objectHit.GetComponent<PlayerHealthManager>()) {
+                        PlayerHealthManager _phm = objectHit.GetComponent<PlayerHealthManager>();
+                        _phm.TakeDamage(UnityEngine.Random.Range(5, 10));
+                    }
+                }
+
+                if (objectHit.tag == "Enemy") {
+                    if (objectHit.GetComponent<PlayerHealthManager>()) {
+                        PlayerHealthManager _phm = objectHit.GetComponent<PlayerHealthManager>();
+                        _phm.TakeDamage(UnityEngine.Random.Range(10, 20));
+                    }
+                }
                 // Do something with the object that was hit by the raycast.
             }
-            Transform ply = GameObject.FindGameObjectWithTag("LocalPlayer").transform;
-            AddToDB.instance.AddShotLog(ply.position);
+            Transform _ply = GameObject.FindGameObjectWithTag("LocalPlayer").transform;
+            AddToDB.instance.AddShotLog(_ply.position);
             // 4. Remove 1 bullet from cur mag
             _curMagazine -= 1;
         }

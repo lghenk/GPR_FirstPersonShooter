@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class PlayerHealthManager : MonoBehaviour
+public class PlayerHealthManager : NetworkBehaviour
 {
-    public float StartingHealth = 100;                            
+    public float StartingHealth = 100;
+    
+    [SyncVar]
     public float CurrentHealth; 
 	
 	public Image HealthBar;                                
