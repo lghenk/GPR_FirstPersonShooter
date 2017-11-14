@@ -1,9 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 8b75ef75315624998ac51c9211d436de
+folderAsset: yes
+timeCreated: 1510567681
+=======
 guid: 235a19db14789c54685230048eef6e63
 folderAsset: yes
-timeCreated: 1508403749
+timeCreated: 1510567133
+>>>>>>> origin/Jerry
 licenseType: Free
 DefaultImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
