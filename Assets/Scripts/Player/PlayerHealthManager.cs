@@ -22,6 +22,8 @@ public class PlayerHealthManager : NetworkBehaviour
 
     void Awake (){
         CurrentHealth = StartingHealth;
+
+		HealthBar = GameObject.FindWithTag("Health").GetComponent<Image>();
     }
 
     void Update (){
