@@ -427,6 +427,26 @@ Prefab:
       propertyPath: _maxFireRate
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 114833698298888540, guid: 47020ea5cca599f469534066869999e6,
+        type: 2}
+      propertyPath: _gunShotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: dc15034354bbc834a94c10aacc13a16c, type: 3}
+    - target: {fileID: 114833698298888540, guid: 47020ea5cca599f469534066869999e6,
+        type: 2}
+      propertyPath: _reloadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8ce311c4c3c6e6944bb77d6fb368fc0b, type: 3}
+    - target: {fileID: 114833698298888540, guid: 47020ea5cca599f469534066869999e6,
+        type: 2}
+      propertyPath: _switchSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e50190a1ceb7644e90b1dfeaf753edb, type: 3}
+    - target: {fileID: 114833698298888540, guid: 47020ea5cca599f469534066869999e6,
+        type: 2}
+      propertyPath: _curAmmo
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47020ea5cca599f469534066869999e6, type: 2}
   m_IsPrefabParent: 0
@@ -586,11 +606,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114255215901231126, guid: 53c2c0c2fee4cf246a6770f38cc7ad5c,
-        type: 2}
-      propertyPath: HealthBar
-      value: 
-      objectReference: {fileID: 55069938}
     - target: {fileID: 1528935574454096, guid: 53c2c0c2fee4cf246a6770f38cc7ad5c, type: 2}
       propertyPath: m_IsActive
       value: 0

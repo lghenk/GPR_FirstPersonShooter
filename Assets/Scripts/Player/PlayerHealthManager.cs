@@ -47,6 +47,10 @@ public class PlayerHealthManager : NetworkBehaviour {
         }
     }
 
+    public bool IsDead() {
+        return _isDead;
+    }
+
     public void TakeDamage(int amount) {
         _damaged = true;
         currentHealth -= amount;
@@ -71,7 +75,7 @@ public class PlayerHealthManager : NetworkBehaviour {
     public void Death() {
         _isDead = true;
         currentHealth = 0;
-        Time.timeScale = 0;
+
         // <WeaponScriptName>.enabled = false;
     }
 }

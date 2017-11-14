@@ -754,6 +754,7 @@ GameObject:
   - component: {fileID: 114817933238002632}
   - component: {fileID: 114767591527520118}
   - component: {fileID: 114255215901231126}
+  - component: {fileID: 114775576544811984}
   m_Layer: 0
   m_Name: theboss
   m_TagString: Player
@@ -2898,9 +2899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1353b699262454e40bff36741c532eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingHealth: 100
-  CurrentHealth: 0
-  HealthBar: {fileID: 0}
+  startingHealth: 100
+  currentHealth: 0
 --- !u!114 &114767591527520118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2912,6 +2912,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e441d83fa63844d4c832ebb8738f7a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114775576544811984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1528935574454096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 4
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114789083181688112
 MonoBehaviour:
   m_ObjectHideFlags: 1
