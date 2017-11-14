@@ -5,54 +5,54 @@ using UnityEngine.Networking;
 
 public class PlayerHealthManager : NetworkBehaviour
 {
-    public float StartingHealth = 100;
+    public float startingHealth = 100;
     
     [SyncVar]
-    public float CurrentHealth; 
+    public float currentHealth; 
 	
-	public Image HealthBar;                                
+	private Image _healthBar;                                
 
-	private float _TestDmg = 1;
+	private float _testDmg = 1;
 	private float _dmg = 25;
-	private float _DelayHealthDecay = 0.01f;
+	private float _delayHealthDecay = 0.01f;
 
     private bool _isDead;
-    private bool _Damaged;
+    private bool _damaged;
 
 
     void Awake (){
-        CurrentHealth = StartingHealth;
+        currentHealth = startingHealth;
 
-		HealthBar = GameObject.FindWithTag("Health").GetComponent<Image>();
+		_healthBar = GameObject.FindWithTag("Health").GetComponent<Image>();
     }
 
     void Update (){
 
-		HealthBar.fillAmount = CurrentHealth/StartingHealth;
+		_healthBar.fillAmount = currentHealth/startingHealth;
 
 		if (Input.GetKeyDown (KeyCode.R) && !_isDead) {
-			CurrentHealth -= _TestDmg;
-			if (CurrentHealth <= 0){
+			currentHealth -= _testDmg;
+			if (currentHealth <= 0){
 				Death ();
 			}
 		}
 
 
-		if (Input.GetKeyDown (KeyCode.T) && !_Damaged && !_isDead) {
-			_Damaged = true;
+		if (Input.GetKeyDown (KeyCode.T) && !_damaged && !_isDead) {
+			_damaged = true;
 			StartCoroutine (HealthDecay());
-//			CurrentHealth -= _TestDmg;
-//			if (CurrentHealth <= 0){
+//			currentHealth -= _testDmg;
+//			if (currentHealth <= 0){
 //				Death ();
 //			}
 		} 
     }
 
     public void TakeDamage (int amount){
-        _Damaged = true;
-        CurrentHealth -= amount;
+        _damaged = true;
+        currentHealth -= amount;
 
-		if(CurrentHealth <= 0 && !_isDead)
+		if(currentHealth <= 0 && !_isDead)
         {
             Death ();
         }
@@ -60,19 +60,19 @@ public class PlayerHealthManager : NetworkBehaviour
 
 	public IEnumerator HealthDecay () {
 		for (int i = 0; i < _dmg; i++) {
-				CurrentHealth -= _TestDmg;
-				if (CurrentHealth <= 0) {
+				currentHealth -= _testDmg;
+				if (currentHealth <= 0) {
 					Death ();
 				}
-			yield return new WaitForSeconds (_DelayHealthDecay);
+			yield return new WaitForSeconds (_delayHealthDecay);
 			}
 		StopCoroutine ("HealthDecay");
-		_Damaged = false;
+		_damaged = false;
 		}
 
  	public void Death (){ 
         _isDead = true;
-		CurrentHealth = 0;
+		currentHealth = 0;
 		Time.timeScale = 0;
 	 // <WeaponScriptName>.enabled = false;
 	}
