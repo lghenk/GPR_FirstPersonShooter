@@ -14,7 +14,7 @@ public class InputManager : MonoBehaviour {
     private float _axisThreshhold = 0.2f;
 
     public static InputManager instance;
-    
+
     void Awake() {
         if (InputManager.instance == null) {
             instance = this;
