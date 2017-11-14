@@ -46,9 +46,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Use this for initialization
         private void Start()
         {
-            if(!isLocalPlayer)
+            if(!isLocalPlayer) {
                 Destroy(this);
-
+                return;
+            }
+                
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = transform.Find("Cam Point").position;
