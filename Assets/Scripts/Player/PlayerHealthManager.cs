@@ -19,6 +19,8 @@ public class PlayerHealthManager : MonoBehaviour
 
     void Awake (){
         CurrentHealth = StartingHealth;
+
+		HealthBar = GameObject.FindWithTag("Health").GetComponent<Image>();
     }
 
     void Update (){
