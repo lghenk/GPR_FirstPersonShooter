@@ -1,4 +1,8 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/Main Camera.prefab.meta
+guid: 47020ea5cca599f469534066869999e6
+timeCreated: 1510570979
+=======
 <<<<<<< HEAD
 guid: f669ac616af5a42f6b3fdeb9ce294185
 timeCreated: 1510567681
@@ -6,9 +10,11 @@ timeCreated: 1510567681
 guid: 87b3241490a15e7418ee06771082381f
 timeCreated: 1510567133
 >>>>>>> origin/Jerry
+>>>>>>> origin/Jerry:Assets/Audio.meta~origin_master.meta
 licenseType: Free
-DefaultImporter:
+NativeFormatImporter:
   externalObjects: {}
+  mainObjectFileID: 100100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

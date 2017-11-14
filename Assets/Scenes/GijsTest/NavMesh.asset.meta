@@ -1,4 +1,8 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scenes/GijsTest/NavMesh.asset.meta
+guid: 57fd4ea049950ca47b8fef962504d153
+timeCreated: 1510567779
+=======
 <<<<<<< HEAD
 guid: c4eefa1e6f22249549b3471f5c70249b
 timeCreated: 1510567681
@@ -6,9 +10,11 @@ timeCreated: 1510567681
 guid: 21cfbf54d8eacec4cb7fe73402acd24c
 timeCreated: 1510567133
 >>>>>>> origin/Jerry
+>>>>>>> origin/Jerry:Assets/Audio.meta~HEAD.meta
 licenseType: Free
-DefaultImporter:
+NativeFormatImporter:
   externalObjects: {}
+  mainObjectFileID: 23800000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
