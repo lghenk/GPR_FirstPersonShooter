@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
     public float spawnTime = 5f;
@@ -6,12 +7,23 @@ public class EnemySpawner : MonoBehaviour {
     public Transform[] spawnPoints;
 
     void Start() {
-       InvokeRepeating("Spawn",spawnTime, spawnTime); 
+        StartCoroutine("WaitForPlayers");       
     }
 
-    void Spawn() {
+    void Spawner() {
+        Debug.Log("Spawn");
         int spawnPointIndex = Random.Range(0, spawnPoints.Length);
         Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
     }
 
+    IEnumerator WaitForPlayers() {
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("LocalPlayer").Length > 0);
+        Debug.Log("players spawned");
+        Spawning();
+    }
+
+    void Spawning() {
+        InvokeRepeating("Spawner", spawnTime, spawnTime);
+        Debug.Log("Spawning");
+    }
 }
