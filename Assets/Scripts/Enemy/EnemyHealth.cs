@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class EnemyHealth : MonoBehaviour {
+public class EnemyHealth : NetworkBehaviour {
 
 	public float startingHealth = 100;
 

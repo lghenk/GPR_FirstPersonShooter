@@ -26,12 +26,12 @@ public class ButtonManager : MonoBehaviour {
 
 	void Start()
 	{
-		Button btn_play = Play.GetComponent<Button>();
+//		Button btn_Play.GetComponent<Button>();
 		Button btn_settings = Settings.GetComponent<Button>(); 
 		Button btn_back = Back.GetComponent<Button>(); 
 		Button btn_exit = Exit.GetComponent<Button>();
 
-		btn_play.onClick.AddListener(delegate() { TaskOnClick("Play"); });
+		Play.onClick.AddListener(delegate() { TaskOnClick("Play"); });
 		btn_settings.onClick.AddListener(delegate() { TaskOnClick("Settings"); });
 		btn_back.onClick.AddListener(delegate() { TaskOnClick("Back"); });
 		btn_exit.onClick.AddListener(delegate() { TaskOnClick("Exit"); });
