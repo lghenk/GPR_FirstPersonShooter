@@ -38,6 +38,8 @@ public class BaseGun : MonoBehaviour {
 
     private AudioSource _audioSource;
 
+    private bool _isReloading = false;
+
     enum _weaponStates {
         single,
         automatic
@@ -113,9 +115,17 @@ public class BaseGun : MonoBehaviour {
         }
     }
 
+    IEnumerator ReloadTimer() {
+        _isReloading = true;
+        yield return new WaitForSeconds(5);
+        _isReloading = false;
+    }
+
     public void Reload() {
         int reloadAmount = _maxMagazine - _curMagazine;
         _curAmmo -= reloadAmount;
+
+        StartCoroutine(ReloadTimer());
 
         if (_curAmmo < 0)
             _curAmmo = 0;
@@ -134,7 +144,7 @@ public class BaseGun : MonoBehaviour {
 
         _curFireCooldown -= Time.deltaTime;
 
-        if (_curFireCooldown <= 0 && _curMagazine > 0 && !_lphm.IsDead()) {
+        if (_curFireCooldown <= 0 && _curMagazine > 0 && !_lphm.IsDead() && !_isReloading) {
             if (_isAutomatic && _weaponState == _weaponStates.automatic && InputManager.instance.GetLeftMouse()) {
                 Shoot();
                 PlayAudioClip();
@@ -144,7 +154,7 @@ public class BaseGun : MonoBehaviour {
             }
         }
 
-        if (InputManager.instance.GetKeyDown(KeyCode.R) && !_lphm.IsDead() && _curAmmo > 0) {
+        if (InputManager.instance.GetKeyDown(KeyCode.R) && !_lphm.IsDead() && _curAmmo > 0 && !_isReloading) {
             Reload();
             PlayAudioClip(_soundClipTypes.reload);
         }
@@ -174,6 +184,14 @@ public class BaseGun : MonoBehaviour {
         }
 
         _audioSource.Play();
+    }
+
+    public bool CanReload() {
+        return (_curAmmo > 0);
+    }
+
+    public bool CanShoot() {
+        return (_curMagazine > 0);
     }
 }
 

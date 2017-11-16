@@ -3,25 +3,25 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour {
-    private Transform player;
-    private Transform enemy;
-    private NavMeshAgent nav;
+    private Transform _player;
+    private Transform _enemy;
+    private NavMeshAgent _nav;
 
     void Start() {
         GetNewTarget();
 
-        enemy = gameObject.transform;
-        nav = GetComponent<NavMeshAgent>();
-        //nav.speed = Random.Range(2, 4);
+        _enemy = gameObject.transform;
+        _nav = GetComponent<NavMeshAgent>();
+        //_nav.speed = Random.Range(2, 4);
         Debug.Log("ok");
     }
 
     void Update() {
-        if(player == null) 
+        if(_player == null) 
             GetNewTarget();
 
-        nav.SetDestination(player.position);
-        enemy.LookAt(player.position);
+        _nav.SetDestination(_player.position);
+        _enemy.LookAt(_player.position);
     }
 
     void GetNewTarget() {
@@ -30,6 +30,6 @@ public class EnemyMovement : MonoBehaviour {
 
         players.Concat(globalPlayers);
 
-        player = players[Random.Range(0, players.Length - 1)].GetComponent<Transform>();
+        _player = players[Random.Range(0, players.Length - 1)].GetComponent<Transform>();
     }
 }
