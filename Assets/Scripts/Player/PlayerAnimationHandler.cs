@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityStandardAssets.Characters.FirstPerson;
 
-public class PlayerAnimationHandler : MonoBehaviour {
+public class PlayerAnimationHandler : NetworkBehaviour {
 
     [SerializeField]
     private Animator _animController;
@@ -18,6 +19,9 @@ public class PlayerAnimationHandler : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        if(!isLocalPlayer)
+            Destroy(this);
+
         _fpc = GetComponent<FirstPersonController>();
 	}
 	

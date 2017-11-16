@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour {
@@ -7,8 +8,8 @@ public class EnemyMovement : MonoBehaviour {
     private NavMeshAgent nav;
 
     void Start() {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("LocalPlayer");
-        player = players[Random.Range(0, players.Length-1)].GetComponent<Transform>();
+        GetNewTarget();
+
         enemy = gameObject.transform;
         nav = GetComponent<NavMeshAgent>();
         //nav.speed = Random.Range(2, 4);
@@ -16,13 +17,19 @@ public class EnemyMovement : MonoBehaviour {
     }
 
     void Update() {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("LocalPlayer");
-        player = players[Random.Range(0, players.Length - 1)].GetComponent<Transform>();
-
-        if (player == null)
-            return;
+        if(player == null) 
+            GetNewTarget();
 
         nav.SetDestination(player.position);
         enemy.LookAt(player.position);
+    }
+
+    void GetNewTarget() {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("LocalPlayer");
+        GameObject[] globalPlayers = GameObject.FindGameObjectsWithTag("Player");
+
+        players.Concat(globalPlayers);
+
+        player = players[Random.Range(0, players.Length - 1)].GetComponent<Transform>();
     }
 }

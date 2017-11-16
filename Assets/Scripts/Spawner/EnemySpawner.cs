@@ -14,11 +14,13 @@ public class EnemySpawner : MonoBehaviour {
         Debug.Log("Spawn");
         int spawnPointIndex = Random.Range(0, spawnPoints.Length);
         Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+
+        Debug.Log(GameObject.FindGameObjectsWithTag("LocalPlayer").Length + " " + GameObject.FindGameObjectsWithTag("Player").Length);
     }
 
     IEnumerator WaitForPlayers() {
-        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("LocalPlayer").Length > 0);
-        Debug.Log("players spawned");
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("LocalPlayer").Length > 0 || GameObject.FindGameObjectsWithTag("Player").Length > 0);
+        Debug.Log("First player has spawned");
         Spawning();
     }
 

@@ -80,12 +80,14 @@ public class BaseGun : MonoBehaviour {
 
             // 3. Raycast away
             RaycastHit _hit;
-            Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray _ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
 
             if (Physics.Raycast(_ray, out _hit)) {
                 Transform objectHit = _hit.transform;
 
                 Debug.Log(objectHit.name);
+
+                Debug.DrawRay(_ray.origin, _hit.point);
 
                 if (objectHit.tag == "Player") {
                     if (objectHit.GetComponent<PlayerHealthManager>()) {
@@ -95,9 +97,9 @@ public class BaseGun : MonoBehaviour {
                 }
 
                 if (objectHit.tag == "Enemy") {
-                    if (objectHit.GetComponent<PlayerHealthManager>()) {
-                        PlayerHealthManager _phm = objectHit.GetComponent<PlayerHealthManager>();
-                        _phm.TakeDamage(UnityEngine.Random.Range(10, 20));
+                    if (objectHit.GetComponent<EnemyHealth>()) {
+                        EnemyHealth _eh = objectHit.GetComponent<EnemyHealth>();
+                        _eh.TakeDamage(UnityEngine.Random.Range(10, 20));
                     }
                 }
             }

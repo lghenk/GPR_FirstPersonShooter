@@ -25,26 +25,8 @@ public class PlayerHealthManager : NetworkBehaviour {
         _healthBar = GameObject.FindWithTag("Health").GetComponent<Image>();
     }
 
-    void Update() {
-
+    void OnGUI() {
         _healthBar.fillAmount = currentHealth / startingHealth;
-
-        if (Input.GetKeyDown(KeyCode.R) && !_isDead) {
-            currentHealth -= _testDmg;
-            if (currentHealth <= 0) {
-                Death();
-            }
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.T) && !_damaged && !_isDead) {
-            _damaged = true;
-            StartCoroutine(HealthDecay());
-            //			currentHealth -= _testDmg;
-            //			if (currentHealth <= 0){
-            //				Death ();
-            //			}
-        }
     }
 
     public bool IsDead() {
