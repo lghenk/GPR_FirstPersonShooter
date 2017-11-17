@@ -18,33 +18,22 @@ public class PlayerHealthManager : NetworkBehaviour {
     private bool _isDead;
     private bool _damaged;
 
+    private Animator _animController;
+
 
     void Awake() {
         currentHealth = startingHealth;
 
         _healthBar = GameObject.FindWithTag("Health").GetComponent<Image>();
+        _animController = transform.GetComponent<Animator>();
     }
 
-    void Update() {
-
+    void OnGUI() {
         _healthBar.fillAmount = currentHealth / startingHealth;
+    }
 
-        if (Input.GetKeyDown(KeyCode.R) && !_isDead) {
-            currentHealth -= _testDmg;
-            if (currentHealth <= 0) {
-                Death();
-            }
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.T) && !_damaged && !_isDead) {
-            _damaged = true;
-            StartCoroutine(HealthDecay());
-            //			currentHealth -= _testDmg;
-            //			if (currentHealth <= 0){
-            //				Death ();
-            //			}
-        }
+    public bool IsDead() {
+        return _isDead;
     }
 
     public void TakeDamage(int amount) {
@@ -71,7 +60,20 @@ public class PlayerHealthManager : NetworkBehaviour {
     public void Death() {
         _isDead = true;
         currentHealth = 0;
-        Time.timeScale = 0;
-        // <WeaponScriptName>.enabled = false;
+
+        // Open Death Screen on player
+        
+        // Wait for count down
+        _animController.SetBool("Dead", true);
+
+        // Respawn on spawn
+        StartCoroutine(Respawn());
+    }
+
+    IEnumerator Respawn() {
+        yield return new WaitForSecondsRealtime(5);
+        currentHealth = startingHealth;
+        _isDead = false;
+        transform.position = new Vector3(0, 1, 0);
     }
 }

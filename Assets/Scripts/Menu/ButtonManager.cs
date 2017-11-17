@@ -36,7 +36,7 @@ public class ButtonManager : MonoBehaviour {
 
 	void TaskOnClick(string option){
 		if (option == "Play") {
-			SceneManager.LoadScene ("JerryTestScene");
+			SceneManager.LoadScene ("Main Scene");
 			Debug.Log ("Play");
 		} 
 		else if (option == "Settings") {

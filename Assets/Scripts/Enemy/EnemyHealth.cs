@@ -27,5 +27,8 @@ public class EnemyHealth : NetworkBehaviour {
 	public void Death() {
 		_isDead = true;
 		currentHealth = 0;
+
+        // Destroy Enemmenemmuies
+        Destroy(gameObject);
 	}
 }
