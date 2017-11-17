@@ -41,10 +41,11 @@ GameObject:
   - component: {fileID: 23772814056692558}
   - component: {fileID: 114286068623834982}
   - component: {fileID: 195167173139671778}
-  - component: {fileID: 54197844353721096}
   - component: {fileID: 114768829644864212}
   - component: {fileID: 114160432917154108}
   - component: {fileID: 114030813415436702}
+  - component: {fileID: 114533278172991484}
+  - component: {fileID: 54307857247827388}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Enemy
@@ -161,7 +162,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1966444818337228}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54197844353721096
+--- !u!54 &54307857247827388
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -232,6 +233,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69254d76238897c45ad4bc4f2fbec0ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114533278172991484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1966444818337228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.05
+  m_SyncRotationAxis: 4
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114768829644864212
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,35 +1,48 @@
 ﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Networking;
 
-public class EnemyMovement : MonoBehaviour {
+public class EnemyMovement : NetworkBehaviour {
     private Transform _player;
     private Transform _enemy;
     private NavMeshAgent _nav;
 
     void Start() {
+        if (!isServer)
+            return;
+
         GetNewTarget();
 
         _enemy = gameObject.transform;
         _nav = GetComponent<NavMeshAgent>();
         //_nav.speed = Random.Range(2, 4);
-        Debug.Log("ok");
     }
 
     void Update() {
+        if (!isServer)
+            return;
+
         if(_player == null) 
             GetNewTarget();
 
-        _nav.SetDestination(_player.position);
+        _nav.destination = _player.position;
         _enemy.LookAt(_player.position);
     }
 
     void GetNewTarget() {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("LocalPlayer");
+        GameObject[] localPlayers = GameObject.FindGameObjectsWithTag("LocalPlayer");
         GameObject[] globalPlayers = GameObject.FindGameObjectsWithTag("Player");
 
-        players.Concat(globalPlayers);
+        GameObject[] players = new GameObject[localPlayers.Length + globalPlayers.Length];
 
-        _player = players[Random.Range(0, players.Length - 1)].GetComponent<Transform>();
+        localPlayers.CopyTo(players, 0);
+        globalPlayers.CopyTo(players, localPlayers.Length);
+
+        Debug.Log(localPlayers.Length + " " + globalPlayers.Length);
+
+        Debug.Log("Players: " + players.Length);
+
+        _player = players[Random.Range(0, players.Length)].GetComponent<Transform>();
     }
 }

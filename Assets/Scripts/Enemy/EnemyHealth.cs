@@ -15,20 +15,29 @@ public class EnemyHealth : NetworkBehaviour {
 	void Awake() {
 		currentHealth = startingHealth;
 	}
-		
-	public void TakeDamage(int amount) {
+
+    private void Update() {
+        if(isServer && _isDead) {
+            NetworkServer.Destroy(gameObject);
+        }
+    }
+
+    public void TakeDamage(int amount) {
 		currentHealth -= amount;
 
 		if (currentHealth <= 0 && !_isDead) {
-			Death();
+            _isDead = true;
+			CmdDeath();
 		}
 	}
-		
-	public void Death() {
-		_isDead = true;
-		currentHealth = 0;
 
+    public bool IsDead() {
+        return _isDead;
+    }
+
+    [Command]
+	public void CmdDeath() {
         // Destroy Enemmenemmuies
-        Destroy(gameObject);
-	}
+        NetworkServer.Destroy(gameObject);
+    }
 }
