@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(AudioSource))]
 public class BaseGun : MonoBehaviour {
@@ -54,7 +55,6 @@ public class BaseGun : MonoBehaviour {
 
     void Start() {
         Reload();
-        Debug.Log("Start Called");
 
         _audioSource = GetComponent<AudioSource>();
 

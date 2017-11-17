@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 114030813415436702}
   - component: {fileID: 114533278172991484}
   - component: {fileID: 54307857247827388}
+  - component: {fileID: 148524495882381188}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Enemy
@@ -221,7 +222,7 @@ MonoBehaviour:
     i14: 48
     i15: 76
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114286068623834982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -279,6 +280,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.74
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!148 &148524495882381188
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1966444818337228}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 4298072538908622}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
 --- !u!195 &195167173139671778
 NavMeshAgent:
   m_ObjectHideFlags: 1
