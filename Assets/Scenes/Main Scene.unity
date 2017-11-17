@@ -4970,6 +4970,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114144896853429762, guid: 47020ea5cca599f469534066869999e6,
+        type: 2}
+      propertyPath: _curAmmo
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47020ea5cca599f469534066869999e6, type: 2}
   m_IsPrefabParent: 0
