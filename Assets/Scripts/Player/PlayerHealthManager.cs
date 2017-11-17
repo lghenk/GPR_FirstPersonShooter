@@ -18,11 +18,14 @@ public class PlayerHealthManager : NetworkBehaviour {
     private bool _isDead;
     private bool _damaged;
 
+    private Animator _animController;
+
 
     void Awake() {
         currentHealth = startingHealth;
 
         _healthBar = GameObject.FindWithTag("Health").GetComponent<Image>();
+        _animController = transform.GetComponent<Animator>();
     }
 
     void OnGUI() {
@@ -61,7 +64,16 @@ public class PlayerHealthManager : NetworkBehaviour {
         // Open Death Screen on player
         
         // Wait for count down
+        _animController.SetBool("Dead", true);
 
         // Respawn on spawn
+        StartCoroutine(Respawn());
+    }
+
+    IEnumerator Respawn() {
+        yield return new WaitForSecondsRealtime(5);
+        currentHealth = startingHealth;
+        _isDead = false;
+        transform.position = new Vector3(0, 1, 0);
     }
 }
