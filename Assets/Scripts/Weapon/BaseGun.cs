@@ -22,10 +22,6 @@ public class BaseGun : MonoBehaviour {
     [SerializeField]
     private float _maxFireRate = 10;
 
-    [Tooltip("Bullet Speed m/s")]
-    [SerializeField]
-    private float _bulletSpeed = 100;
-
     [Tooltip("Whether the can shoot automatic (holding mouse button down)")]
     [SerializeField]
     private bool _isAutomatic = false;
@@ -37,6 +33,8 @@ public class BaseGun : MonoBehaviour {
     private _weaponStates _weaponState = _weaponStates.automatic;
 
     private AudioSource _audioSource;
+
+    private bool _isReloading = false;
 
     enum _weaponStates {
         single,
@@ -80,12 +78,14 @@ public class BaseGun : MonoBehaviour {
 
             // 3. Raycast away
             RaycastHit _hit;
-            Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray _ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
 
             if (Physics.Raycast(_ray, out _hit)) {
                 Transform objectHit = _hit.transform;
 
                 Debug.Log(objectHit.name);
+
+                Debug.DrawRay(_ray.origin, _hit.point);
 
                 if (objectHit.tag == "Player") {
                     if (objectHit.GetComponent<PlayerHealthManager>()) {
@@ -95,9 +95,9 @@ public class BaseGun : MonoBehaviour {
                 }
 
                 if (objectHit.tag == "Enemy") {
-                    if (objectHit.GetComponent<PlayerHealthManager>()) {
-                        PlayerHealthManager _phm = objectHit.GetComponent<PlayerHealthManager>();
-                        _phm.TakeDamage(UnityEngine.Random.Range(10, 20));
+                    if (objectHit.GetComponent<EnemyHealth>()) {
+                        EnemyHealth _eh = objectHit.GetComponent<EnemyHealth>();
+                        _eh.TakeDamage(UnityEngine.Random.Range(10, 20));
                     }
                 }
             }
@@ -111,9 +111,17 @@ public class BaseGun : MonoBehaviour {
         }
     }
 
+    IEnumerator ReloadTimer() {
+        _isReloading = true;
+        yield return new WaitForSeconds(5);
+        _isReloading = false;
+    }
+
     public void Reload() {
         int reloadAmount = _maxMagazine - _curMagazine;
         _curAmmo -= reloadAmount;
+
+        StartCoroutine(ReloadTimer());
 
         if (_curAmmo < 0)
             _curAmmo = 0;
@@ -132,7 +140,7 @@ public class BaseGun : MonoBehaviour {
 
         _curFireCooldown -= Time.deltaTime;
 
-        if (_curFireCooldown <= 0 && _curMagazine > 0 && !_lphm.IsDead()) {
+        if (_curFireCooldown <= 0 && _curMagazine > 0 && !_lphm.IsDead() && !_isReloading) {
             if (_isAutomatic && _weaponState == _weaponStates.automatic && InputManager.instance.GetLeftMouse()) {
                 Shoot();
                 PlayAudioClip();
@@ -142,7 +150,7 @@ public class BaseGun : MonoBehaviour {
             }
         }
 
-        if (InputManager.instance.GetKeyDown(KeyCode.R) && !_lphm.IsDead() && _curAmmo > 0) {
+        if (InputManager.instance.GetKeyDown(KeyCode.R) && !_lphm.IsDead() && _curAmmo > 0 && !_isReloading) {
             Reload();
             PlayAudioClip(_soundClipTypes.reload);
         }
@@ -172,6 +180,14 @@ public class BaseGun : MonoBehaviour {
         }
 
         _audioSource.Play();
+    }
+
+    public bool CanReload() {
+        return (_curAmmo > 0);
+    }
+
+    public bool CanShoot() {
+        return (_curMagazine > 0);
     }
 }
 

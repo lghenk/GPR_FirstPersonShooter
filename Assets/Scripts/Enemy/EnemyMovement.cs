@@ -1,28 +1,35 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour {
-    private Transform player;
-    private Transform enemy;
-    private NavMeshAgent nav;
+    private Transform _player;
+    private Transform _enemy;
+    private NavMeshAgent _nav;
 
     void Start() {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("LocalPlayer");
-        player = players[Random.Range(0, players.Length-1)].GetComponent<Transform>();
-        enemy = gameObject.transform;
-        nav = GetComponent<NavMeshAgent>();
-        //nav.speed = Random.Range(2, 4);
+        GetNewTarget();
+
+        _enemy = gameObject.transform;
+        _nav = GetComponent<NavMeshAgent>();
+        //_nav.speed = Random.Range(2, 4);
         Debug.Log("ok");
     }
 
     void Update() {
+        if(_player == null) 
+            GetNewTarget();
+
+        _nav.SetDestination(_player.position);
+        _enemy.LookAt(_player.position);
+    }
+
+    void GetNewTarget() {
         GameObject[] players = GameObject.FindGameObjectsWithTag("LocalPlayer");
-        player = players[Random.Range(0, players.Length - 1)].GetComponent<Transform>();
+        GameObject[] globalPlayers = GameObject.FindGameObjectsWithTag("Player");
 
-        if (player == null)
-            return;
+        players.Concat(globalPlayers);
 
-        nav.SetDestination(player.position);
-        enemy.LookAt(player.position);
+        _player = players[Random.Range(0, players.Length - 1)].GetComponent<Transform>();
     }
 }
