@@ -29,6 +29,9 @@ public class PlayerHealthManager : NetworkBehaviour {
     }
 
     void OnGUI() {
+        if (!isLocalPlayer)
+            return;
+
         _healthBar.fillAmount = currentHealth / startingHealth;
     }
 

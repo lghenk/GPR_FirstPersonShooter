@@ -9,37 +9,31 @@ public class EnemyDamage : MonoBehaviour {
     [SerializeField]
     private float _curRefreshTime = 0;
 
+    private PlayerHealthManager _hurtingPlayer;
+
     // Update is called once per frame
     void Update() {
         if (_curRefreshTime >= 0) {
             _curRefreshTime -= Time.deltaTime;
         }
+
+        if(_hurtingPlayer != null && _curRefreshTime <= 0) {
+            _hurtingPlayer.TakeDamage(Random.Range(5, 15));
+            _curRefreshTime = refreshTime;
+        }
     }
 
     void OnCollisionEnter(Collision collision) {
-        if (_curRefreshTime <= 0) {
-            if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "LocalPlayer") {
-                PlayerHealthManager _phm = collision.gameObject.GetComponent<PlayerHealthManager>();
-                if (_phm) {
-                    _phm.TakeDamage(Random.Range(5, 15));
-                }
-
-                _curRefreshTime = refreshTime;
-            }            
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "LocalPlayer") {
+            PlayerHealthManager _phm = collision.gameObject.GetComponent<PlayerHealthManager>();
+            if (_phm) {
+                _hurtingPlayer = _phm;
+            }
         }
     }
 
-    void OnCollisionStay(Collision collision) {
-        if (_curRefreshTime <= 0) {
-            if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "LocalPlayer") {
-                PlayerHealthManager _phm = collision.gameObject.GetComponent<PlayerHealthManager>();
-                if (_phm) {
-                    _phm.TakeDamage(Random.Range(5, 15));
-                }
-
-                _curRefreshTime = refreshTime;
-            }
-        }
+    private void OnCollisionExit(Collision collision) {
+        _hurtingPlayer = null;
     }
 
 }
