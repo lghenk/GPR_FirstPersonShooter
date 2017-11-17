@@ -189,5 +189,13 @@ public class BaseGun : MonoBehaviour {
     public bool CanShoot() {
         return (_curMagazine > 0);
     }
+
+    public int GetAmmoCount() {
+        return _curAmmo;
+    }
+
+    public int GetMagazine() {
+        return _curMagazine;
+    }
 }
 
