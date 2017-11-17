@@ -22,10 +22,6 @@ public class BaseGun : MonoBehaviour {
     [SerializeField]
     private float _maxFireRate = 10;
 
-    [Tooltip("Bullet Speed m/s")]
-    [SerializeField]
-    private float _bulletSpeed = 100;
-
     [Tooltip("Whether the can shoot automatic (holding mouse button down)")]
     [SerializeField]
     private bool _isAutomatic = false;

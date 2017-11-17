@@ -45,13 +45,14 @@ GameObject:
   - component: {fileID: 54197844353721096}
   - component: {fileID: 114768829644864212}
   - component: {fileID: 114160432917154108}
+  - component: {fileID: 114030813415436702}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4234942513836252
 Transform:
   m_ObjectHideFlags: 1
@@ -72,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1966444818337228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15053175, y: 0.5, z: 385.59344}
+  m_LocalPosition: {x: 3.4024239, y: 0.49999994, z: 7.8385463}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4234942513836252}
@@ -188,6 +189,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114030813415436702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1966444818337228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7381294b52d02f442acf6daaec7b8f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refreshTime: 3
+  _curRefreshTime: 0
 --- !u!114 &114160432917154108
 MonoBehaviour:
   m_ObjectHideFlags: 1
